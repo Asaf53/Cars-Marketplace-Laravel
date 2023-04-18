@@ -4,6 +4,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* CUSTOM WIDTHS */
+        /* BREAKPOINTS */
+
+        /* SM breakpoint */
+        /* @media (min-width: 576px) {
+
+            CUSTOM WIDTHS
+            .w-sm-100 {
+                width: 100% !important;
+            }
+        } */
+
+        /* MD breakpoint*/
+        @media (min-width: 768px) {
+
+            /* CUSTOM WIDTHS */
+            .w-md-100 {
+                width: 100% !important;
+            }
+        }
+
+        /* LG breakpoint */
+        @media (min-width: 992px) {
+
+            /* CUSTOM WIDTHS */
+            .w-lg-50 {
+                width: 50% !important;
+            }
+        }
+    </style>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -21,7 +52,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container w-100 w-lg-50">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>

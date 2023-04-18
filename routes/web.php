@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome1');
 });
 
 // Route::get('/email/verify', function () {

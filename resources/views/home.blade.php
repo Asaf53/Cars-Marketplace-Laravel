@@ -1,17 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container w-75">
-        <div class="row">
-            <div class="bg-danger w-25 position-relative">
+    <div class="container w-100 w-lg-50">
+        <div class="col-3 bg-danger">
+            <div class="p-2">
                 <h1>Hello</h1>
                 <h1>Hello</h1>
                 <h1>Hello</h1>
                 <h1>Hello</h1>
                 <h1>Hello</h1>
             </div>
-            <div class="bg-warning w-75 position-relative">
-                <h1>Hello World</h1>
+        </div>
+        <div class="row bg-warning">
+            <div class="col-9">
+                <h1>Hello</h1>
+                <h1>Hello</h1>
+                <h1>Hello</h1>
+                <h1>Hello</h1>
+                <h1>Hello</h1>
             </div>
         </div>
 
