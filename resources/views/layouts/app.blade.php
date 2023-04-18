@@ -10,11 +10,6 @@
 
         /* SM breakpoint */
         /* @media (min-width: 576px) {
-
-            CUSTOM WIDTHS
-            .w-sm-100 {
-                width: 100% !important;
-            }
         } */
 
         /* MD breakpoint*/
