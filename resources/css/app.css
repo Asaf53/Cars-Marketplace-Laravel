@@ -1,0 +1,30 @@
+/* MD breakpoint*/
+@media (min-width: 768px) {
+
+    /* CUSTOM WIDTHS */
+    .w-md-100 {
+        width: 100% !important;
+    }
+}
+
+/* LG breakpoint */
+@media (min-width: 992px) {
+
+    /* CUSTOM WIDTHS */
+    .w-lg-50 {
+        width: 50% !important;
+    }
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+
+.bg-gray {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.l-11{
+    left: 11% !important;
+}

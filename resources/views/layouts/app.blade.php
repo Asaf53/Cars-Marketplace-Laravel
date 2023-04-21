@@ -5,30 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* CUSTOM WIDTHS */
-        /* BREAKPOINTS */
 
-        /* SM breakpoint */
-        /* @media (min-width: 576px) {
-        } */
-
-        /* MD breakpoint*/
-        @media (min-width: 768px) {
-
-            /* CUSTOM WIDTHS */
-            .w-md-100 {
-                width: 100% !important;
-            }
-        }
-
-        /* LG breakpoint */
-        @media (min-width: 992px) {
-
-            /* CUSTOM WIDTHS */
-            .w-lg-50 {
-                width: 50% !important;
-            }
-        }
     </style>
 
     <!-- CSRF Token -->
@@ -39,9 +16,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 </head>
 
 <body>
