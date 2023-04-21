@@ -47,4 +47,5 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/addcar', [AddCarController::class, 'index'])->name('addcar');
+Route::get('/addcar', [AddCarController::class, 'index']);
+Route::get('model/{id}', [AddCarController::class, 'modelss']);

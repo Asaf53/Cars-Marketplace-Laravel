@@ -17,10 +17,10 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="Manufacturer" class="form-label">Manufacturer</label>
-                                <select class="form-select" id="Manufacturer" required>
-                                    <option value="">Choose...</option>
-                                    <option>Audi</option>
-                                    <option>Porsche</option>
+                                <select class="form-select" id="Manufacturer" name="Manufacturer" required>
+                                    @foreach ($manufacturer as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please enter a valid Manufacturer.
@@ -29,10 +29,7 @@
 
                             <div class="col-sm-6">
                                 <label for="Model" class="form-label">Model</label>
-                                <select class="form-select" id="Model" required>
-                                    <option value="">Choose...</option>
-                                    <option>A6</option>
-                                    <option>A8</option>
+                                <select class="form-select" id="Model" name="Model" required>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please enter a valid Model.
@@ -184,5 +181,27 @@
         </main>
     </div>
 @endsection
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="Manufacturer"]').on('change', function() {
+            var manufacturerID = $(this).val();
+            if(manufacturerID) {
+                $.ajax({
+                    url: '/model/'+manufacturerID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('select[name="Model"]').empty();
+                        $.each(data, function(key, value) {
+                        $('select[name="Model"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="Model"]').empty();
+            }
+        });
+    });
+</script>
 @extends('layouts.footer')
