@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container w-100 w-lg-50">
         <main>
             <div class="py-5 text-center">
                 {{-- <img class="d-block mx-auto mb-4" src="#" alt="Logo" width="72" height="57"> --}}
@@ -13,7 +13,8 @@
 
                 <div class="col-md-6 col-lg-8">
                     <h4 class="mb-3">Car Details</h4>
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" method="post" action="{{ route('storeCar') }}">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="Manufacturer" class="form-label">Manufacturer</label>
@@ -36,7 +37,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <label for="Body" class="form-label">Body Style</label>
                                 <select class="form-select" id="Body" required>
                                     <option value="">Choose...</option>
@@ -172,7 +173,7 @@
                                     <label class="form-check-label" for="mkd">MKD</label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Continue to checkout</button>
                     </form>
