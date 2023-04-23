@@ -37,7 +37,7 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="col-sm-6">
+                            <div class="col-sm-6">
                                 <label for="Body" class="form-label">Body Style</label>
                                 <select class="form-select" id="Body" required>
                                     <option value="">Choose...</option>
@@ -173,7 +173,7 @@
                                     <label class="form-check-label" for="mkd">MKD</label>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
 
                         <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Continue to checkout</button>
                     </form>

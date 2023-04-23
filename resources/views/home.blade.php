@@ -4,11 +4,12 @@
     <div class="container w-100 w-lg-50">
         <div class="col-3 bg-danger">
             <div class="p-2">
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
+                @foreach ($cars as $car)
+                    <h1>{{ $car->brand }}</h1>
+                    <h1>{{ $car->model }}</h1>
+                    <h1>{{ $car->name }}</h1>
+                    <h1>{{ $car->email }}</h1>
+                @endforeach
             </div>
         </div>
         <div class="row bg-warning">
