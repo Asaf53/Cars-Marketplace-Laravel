@@ -14,7 +14,10 @@ class AddCarController extends Controller
     public function index()
     {
         $manufacturer = DB::table("manufacturers")->pluck('brand', 'id');
-        return view('addcar', compact('manufacturer'));
+        $color = DB::table("colors")->pluck('color', 'id');
+        $bodystyle = DB::table("bodystyles")->pluck('style', 'id');
+        $condition = DB::table("conditions")->pluck('Condition', 'id');
+        return view('addcar', compact('manufacturer', 'color', 'bodystyle', 'condition'));
     }
 
     public function modelss($id)
@@ -30,11 +33,17 @@ class AddCarController extends Controller
         $user = Auth::user()->id;
         $manufacturer = $request->input('Manufacturer');
         $model = $request->input('Model');
+        $bodystyle = $request->input('Bodystyle');
+        $color = $request->input('Color');
+        $condition = $request->input('Condition');
 
         $cars = new cars();
         $cars->user_id = $user;
         $cars->manufacturer_id = $manufacturer;
         $cars->model_id = $model;
+        $cars->bodystyle_id = $bodystyle;
+        $cars->color_id = $color;
+        $cars->condition_id = $condition;
         // dd($cars);
         $cars->save();
     }

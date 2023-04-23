@@ -28,18 +28,18 @@ class cars extends Model
         return $this->belongsToMany(manufacturer::class);
     }
 
-    // public function BodyStyle()
-    // {
-    //     return $this->belongsToMany(BodyStyle::class);
-    // }
+    public function BodyStyle()
+    {
+        return $this->belongsToMany(BodyStyle::class);
+    }
 
-    // public function Color()
-    // {
-    //     return $this->belongsToMany(Color::class);
-    // }
+    public function Color()
+    {
+        return $this->belongsToMany(Color::class);
+    }
 
-    // public function Condition()
-    // {
-    //     return $this->belongsToMany(Condition::class);
-    // }
+    public function Condition()
+    {
+        return $this->belongsToMany(Condition::class);
+    }
 }

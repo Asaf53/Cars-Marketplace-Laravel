@@ -35,9 +35,15 @@ class HomeController extends Controller
             'users.id',
             'users.name',
             'users.email',
+            'colors.color',
+            'conditions.Condition',
+            'bodystyles.style',
             DB::raw('models.name AS model'),
         )->join('manufacturers', 'cars.manufacturer_id', '=', 'manufacturers.id')
             ->join('models', 'cars.model_id', '=', 'models.id')
+            ->join('colors', 'cars.color_id', '=', 'colors.id')
+            ->join('conditions', 'cars.condition_id', '=', 'conditions.id')
+            ->join('bodystyles', 'cars.bodystyle_id', '=', 'bodystyles.id')
             ->join('users', 'cars.user_id', '=', 'users.id')->get();
         // dd($cars);
         return view('home', compact('cars'));

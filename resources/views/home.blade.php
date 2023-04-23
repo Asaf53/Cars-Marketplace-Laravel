@@ -7,6 +7,9 @@
                 @foreach ($cars as $car)
                     <h1>{{ $car->brand }}</h1>
                     <h1>{{ $car->model }}</h1>
+                    <h1>{{ $car->Condition }}</h1>
+                    <h1>{{ $car->style }}</h1>
+                    <h1>{{ $car->color }}</h1>
                     <h1>{{ $car->name }}</h1>
                     <h1>{{ $car->email }}</h1>
                 @endforeach
