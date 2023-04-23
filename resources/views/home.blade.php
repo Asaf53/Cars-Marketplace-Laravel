@@ -1,29 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container w-100 w-lg-50">
-        <div class="col-3 bg-danger">
-            <div class="p-2">
-                @foreach ($cars as $car)
-                    <h1>{{ $car->brand }}</h1>
-                    <h1>{{ $car->model }}</h1>
-                    <h1>{{ $car->Condition }}</h1>
-                    <h1>{{ $car->style }}</h1>
-                    <h1>{{ $car->color }}</h1>
-                    <h1>{{ $car->name }}</h1>
-                    <h1>{{ $car->email }}</h1>
-                @endforeach
+        <div class="row gap-2">
+            <div class="col-3 bg-danger order-first">
+
             </div>
+            @foreach ($cars as $car)
+                <div class="col-8 bg-gray order-last">
+                    <div class="p-2">
+                        <h1>{{ $car->brand }}</h1>
+                        <h1>{{ $car->model }}</h1>
+                        <h1>{{ $car->Condition }}</h1>
+                        <h1>{{ $car->style }}</h1>
+                        <h1>{{ $car->color }}</h1>
+                        <h1>{{ $car->name }}</h1>
+                        <h1>{{ $car->email }}</h1>
+                    </div>
+                </div>
+            @endforeach
+
         </div>
-        <div class="row bg-warning">
-            <div class="col-9">
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-            </div>
-        </div>
+
 
 
         {{-- <div id="carouselExampleFade" class="carousel slide carousel-fade">
