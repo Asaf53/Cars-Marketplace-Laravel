@@ -20,6 +20,13 @@ return new class extends Migration
             $table->foreignId('color_id')->constrained()->onDelete('cascade');
             $table->foreignId('condition_id')->constrained()->onDelete('cascade');
             $table->foreignId('year_id')->constrained()->onDelete('cascade');
+            $table->foreignId('gearbox_id')->constrained()->onDelete('cascade');
+            $table->foreignId('fuel_id')->constrained()->onDelete('cascade');
+            $table->foreignId('state_id')->constrained()->onDelete('cascade');
+            $table->foreignId('registration_id')->constrained()->onDelete('cascade');
+            $table->string('mileage');
+            $table->string('description');
+            $table->string('price');
             $table->timestamps();
         });
     }

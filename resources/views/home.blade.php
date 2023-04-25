@@ -16,6 +16,13 @@
                         <h1>{{ $car->style }}</h1>
                         <h1>{{ $car->color }}</h1>
                         <h1>{{ $car->year }}</h1>
+                        <h1>{{ $car->fuel }}</h1>
+                        <h1>{{ $car->registration }}</h1>
+                        <h1>{{ $car->state }}</h1>
+                        <h1>{{ $car->gearbox }}</h1>
+                        <h1>{{ $car->description }}</h1>
+                        <h1>{{ $car->price }}</h1>
+                        <h1>{{ $car->mileage }}</h1>
                         <h1>{{ $car->name }}</h1>
                         <h1>{{ $car->email }}</h1>
                     </div>

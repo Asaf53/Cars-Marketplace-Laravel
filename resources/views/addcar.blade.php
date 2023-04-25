@@ -90,7 +90,7 @@
                                 </div>
                             </div>
 
-                            {{--<div class="col-sm-6">
+                            <div class="col-sm-6">
                                 <label for="Mileage" class="form-label">Mileage</label>
                                 <input type="text" class="form-control" name="Mileage" id="Mileage" required>
                                 <div class="invalid-feedback">
@@ -100,10 +100,11 @@
 
                             <div class="col-sm-6">
                                 <label for="GearBox" class="form-label">Gear Box</label>
-                                <select class="form-select" id="GearBox" required>
+                                <select class="form-select" id="GearBox" name="GearBox" required>
                                     <option value="">Choose...</option>
-                                    <option>Automatic</option>
-                                    <option>Manual</option>
+                                    @foreach ($gearbox as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please enter a valid Gear Box.
@@ -112,10 +113,11 @@
 
                             <div class="col-sm-6">
                                 <label for="Fuel" class="form-label">Fuel</label>
-                                <select class="form-select" id="Fuel" required>
+                                <select class="form-select" id="Fuel" name="Fuel" required>
                                     <option value="">Choose...</option>
-                                    <option>Gasoline</option>
-                                    <option>Diesel</option>
+                                    @foreach ($fuel as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please enter a valid Fuel.
@@ -124,17 +126,18 @@
 
                             <div class="col-sm-6">
                                 <label for="Registration" class="form-label">Registration</label>
-                                <select class="form-select" id="Registration" required>
+                                <select class="form-select" id="Registration" name="Registration" required>
                                     <option value="">Choose...</option>
-                                    <option>Macedonia</option>
-                                    <option>Other</option>
+                                    @foreach ($registration as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please enter a valid Registration.
                                 </div>
                             </div>
 
-                            <div class="col-12 bg-secondary rounded bg-gray">
+                            {{--<div class="col-12 bg-secondary rounded bg-gray">
                                 <span>Car Photos</span>
                                 <input type="file" class="form-control" id="photoUpload">
                                 <div class="p-2 d-block">
@@ -145,14 +148,15 @@
                                     <img src="foto.jpg" alt="foto" class="w-10">
                                     <a href="#"><i class='bx bx-x-circle'></i></a>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-4">
                                 <label for="state" class="form-label">State</label>
-                                <select class="form-select" id="state" required>
+                                <select class="form-select" id="state" name="State" required>
                                     <option value="">Choose...</option>
-                                    <option>Gostivar</option>
-                                    <option>Skopje</option>
+                                    @foreach ($state as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid state.
@@ -161,13 +165,13 @@
 
                             <div class="col-sm-5">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="description" id="description"></textarea>
+                                <textarea class="form-control" name="Description" id="description"></textarea>
                             </div>
 
                             <div class="col-sm-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" class="form-control" name="price" id="price">
-                                <div class="form-check">
+                                <input type="text" class="form-control" name="Price" id="price">
+                                {{-- <div class="form-check">
                                     <input id="euro" name="paymentMethod" type="radio" class="form-check-input"
                                         required>
                                     <label class="form-check-label" for="euro">EURO</label>
@@ -176,8 +180,8 @@
                                     <input id="mkd" name="paymentMethod" type="radio" class="form-check-input"
                                         required>
                                     <label class="form-check-label" for="mkd">MKD</label>
-                                </div>
-                            </div> --}}
+                                </div> --}}
+                            </div>
                         </div>
 
                         <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Continue to checkout</button>

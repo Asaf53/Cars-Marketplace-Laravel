@@ -46,4 +46,20 @@ class cars extends Model
     {
         return $this->belongsToMany(year::class);
     }
+    public function Gearbox()
+    {
+        return $this->belongsToMany(gearbox::class);
+    }
+    public function Fuel()
+    {
+        return $this->belongsToMany(fuel::class);
+    }
+    public function Registration()
+    {
+        return $this->belongsToMany(registration::class);
+    }
+    public function State()
+    {
+        return $this->belongsToMany(state::class);
+    }
 }

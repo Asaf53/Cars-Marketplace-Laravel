@@ -39,6 +39,10 @@ class HomeController extends Controller
             'conditions.Condition',
             'bodystyles.style',
             'years.year',
+            'fuels.fuel',
+            'gearboxes.gearbox',
+            'registrations.registration',
+            'states.state',
             DB::raw('models.name AS model'),
         )->join('manufacturers', 'cars.manufacturer_id', '=', 'manufacturers.id')
             ->join('models', 'cars.model_id', '=', 'models.id')
@@ -46,6 +50,10 @@ class HomeController extends Controller
             ->join('conditions', 'cars.condition_id', '=', 'conditions.id')
             ->join('bodystyles', 'cars.bodystyle_id', '=', 'bodystyles.id')
             ->join('years', 'cars.year_id', '=', 'years.id')
+            ->join('fuels', 'cars.fuel_id', '=', 'fuels.id')
+            ->join('gearboxes', 'cars.gearbox_id', '=', 'gearboxes.id')
+            ->join('registrations', 'cars.registration_id', '=', 'registrations.id')
+            ->join('states', 'cars.state_id', '=', 'states.id')
             ->join('users', 'cars.user_id', '=', 'users.id')->get();
         // dd($cars);
         return view('home', compact('cars'));
