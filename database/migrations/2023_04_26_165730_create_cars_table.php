@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('bodystyle_id')->constrained()->onDelete('cascade');
             $table->foreignId('color_id')->constrained()->onDelete('cascade');
             $table->foreignId('condition_id')->constrained()->onDelete('cascade');
+            $table->foreignId('year_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

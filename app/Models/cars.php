@@ -42,4 +42,8 @@ class cars extends Model
     {
         return $this->belongsToMany(Condition::class);
     }
+    public function Year()
+    {
+        return $this->belongsToMany(year::class);
+    }
 }

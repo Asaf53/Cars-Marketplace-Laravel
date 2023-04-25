@@ -19,6 +19,7 @@
                             <div class="col-sm-6">
                                 <label for="Manufacturer" class="form-label">Manufacturer</label>
                                 <select class="form-select" id="Manufacturer" name="Manufacturer" required>
+                                    <option value="">Choose Manufacturer</option>
                                     @foreach ($manufacturer as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -40,6 +41,7 @@
                             <div class="col-sm-6">
                                 <label for="Body" class="form-label">Body Style</label>
                                 <select class="form-select" id="Body" name="Bodystyle" required>
+                                    <option value="">Choose Body Syle</option>
                                     @foreach ($bodystyle as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -52,6 +54,7 @@
                             <div class="col-sm-6">
                                 <label for="Color" class="form-label">Color</label>
                                 <select class="form-select" id="Color" name="Color" required>
+                                    <option value="">Choose Color</option>
                                     @foreach ($color as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -64,28 +67,30 @@
                             <div class="col-sm-6">
                                 <label for="Condition" class="form-label">Condition</label>
                                 <select class="form-select" id="Condition" name="Condition" required>
+                                    <option value="">Choose Condition</option>
                                     @foreach ($condition as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please enter a valid Condition address for shipping updates.
+                                    Please enter a valid Condition.
                                 </div>
                             </div>
 
-                            {{-- <div class="col-sm-6">
+                            <div class="col-sm-6">
                                 <label for="Year" class="form-label">Year</label>
-                                <select class="form-select" id="Year" required>
+                                <select class="form-select" id="Year" name="Year" required>
                                     <option value="">Choose...</option>
-                                    <option>2023</option>
-                                    <option>2017</option>
+                                    @foreach ($year as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please enter a valid Year.
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            {{--<div class="col-sm-6">
                                 <label for="Mileage" class="form-label">Mileage</label>
                                 <input type="text" class="form-control" name="Mileage" id="Mileage" required>
                                 <div class="invalid-feedback">
@@ -172,8 +177,8 @@
                                         required>
                                     <label class="form-check-label" for="mkd">MKD</label>
                                 </div>
-                            </div>
-                        </div> --}}
+                            </div> --}}
+                        </div>
 
                         <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Continue to checkout</button>
                     </form>

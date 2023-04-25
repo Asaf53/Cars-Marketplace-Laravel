@@ -17,7 +17,8 @@ class AddCarController extends Controller
         $color = DB::table("colors")->pluck('color', 'id');
         $bodystyle = DB::table("bodystyles")->pluck('style', 'id');
         $condition = DB::table("conditions")->pluck('Condition', 'id');
-        return view('addcar', compact('manufacturer', 'color', 'bodystyle', 'condition'));
+        $year = DB::table("years")->pluck('year', 'id');
+        return view('addcar', compact('manufacturer', 'color', 'bodystyle', 'condition', 'year'));
     }
 
     public function modelss($id)
@@ -36,6 +37,7 @@ class AddCarController extends Controller
         $bodystyle = $request->input('Bodystyle');
         $color = $request->input('Color');
         $condition = $request->input('Condition');
+        $year = $request->input('Year');
 
         $cars = new cars();
         $cars->user_id = $user;
@@ -44,6 +46,7 @@ class AddCarController extends Controller
         $cars->bodystyle_id = $bodystyle;
         $cars->color_id = $color;
         $cars->condition_id = $condition;
+        $cars->year_id = $year;
         // dd($cars);
         $cars->save();
     }
