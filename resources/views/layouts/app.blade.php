@@ -62,6 +62,9 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 <ul class="dropdown-menu text-small">
+                                    @if (Auth::user()->role == '2')
+                                        <li><a class="dropdown-item" href="{{ route('admin') }}">Dashboard</a></li>
+                                    @endif
                                     <li><a class="dropdown-item" href="{{ route('addcar') }}">New project...</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
