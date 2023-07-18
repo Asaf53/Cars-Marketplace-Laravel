@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @if ($msg = Session::get('alert'))
+        <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+            <i class="bx bx-check h5"></i>
+            <strong>{{ $msg }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <div class="container w-100 w-lg-50">
         <div class="row gap-2">

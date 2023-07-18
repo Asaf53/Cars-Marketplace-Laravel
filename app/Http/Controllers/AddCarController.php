@@ -5,23 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\cars;
 use App\Models\manufacturer;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AddCarController extends Controller
 {
     public function index()
     {
-        $manufacturer = DB::table("manufacturers")->pluck('brand', 'id');
-        $color = DB::table("colors")->pluck('color', 'id');
-        $bodystyle = DB::table("bodystyles")->pluck('style', 'id');
-        $condition = DB::table("conditions")->pluck('Condition', 'id');
-        $year = DB::table("years")->pluck('year', 'id');
-        $fuel = DB::table("fuels")->pluck('fuel', 'id');
-        $gearbox = DB::table("gearboxes")->pluck('gearbox', 'id');
-        $registration = DB::table("registrations")->pluck('registration', 'id');
-        $state = DB::table("states")->pluck('state', 'id');
+        $manufacturer = DB::table("manufacturers")->orderBy('brand', 'asc')->pluck('brand', 'id');
+        $color = DB::table("colors")->orderBy('color', 'asc')->pluck('color', 'id');
+        $bodystyle = DB::table("bodystyles")->orderBy('style', 'asc')->pluck('style', 'id');
+        $condition = DB::table("conditions")->orderBy('condition', 'asc')->pluck('Condition', 'id');
+        $year = DB::table("years")->orderBy('id', 'asc')->pluck('year', 'id');
+        $fuel = DB::table("fuels")->orderBy('fuel', 'asc')->pluck('fuel', 'id');
+        $gearbox = DB::table("gearboxes")->orderBy('gearbox', 'asc')->pluck('gearbox', 'id');
+        $registration = DB::table("registrations")->orderBy('registration', 'asc')->pluck('registration', 'id');
+        $state = DB::table("states")->orderBy('state', 'asc')->pluck('state', 'id');
         return view('addcar', compact('manufacturer', 'color', 'bodystyle', 'condition', 'year', 'fuel', 'gearbox', 'registration', 'state'));
     }
 
@@ -29,12 +31,23 @@ class AddCarController extends Controller
     {
         $models = DB::table("models")
             ->where("manufacturer_id", $id)
+            ->orderBy('name', 'asc')
             ->pluck('name', 'id');
         return json_encode($models);
     }
 
     public function storeCar(Request $request)
     {
+        // $images = $request->input('images');
+        // dd($images);
+
+        // foreach ($request->input('images') as $image) {
+        //     $filename = $image->store('public/images');
+        //     $url = Storage::url($filename);
+
+        //     // Save the image URL to the database or do something else with it
+        // }
+
         $user = Auth::user()->id;
         $manufacturer = $request->input('Manufacturer');
         $model = $request->input('Model');
@@ -65,7 +78,28 @@ class AddCarController extends Controller
         $cars->mileage = $mileage;
         $cars->description = $description;
         $cars->price = $price;
-        // dd($cars);
         $cars->save();
+
+        return redirect()->route('home')->with('alert', 'Car Added Successfully');
+        // dd($cars);
+
+
+        // if ($user->) {
+        // } else {
+        //     echo "not verified";
+        // }
     }
+    // public function uploadImages(Request $request)
+    // {
+    //     $images = $request->file('images');
+
+    //     foreach ($images as $image) {
+    //         $filename = $image->store('public/images');
+    //         $url = Storage::url($filename);
+
+    //         // Save the image URL to the database or do something else with it
+    //     }
+
+    //     return response()->json(['message' => 'Images uploaded successfully.']);
+    // }
 }

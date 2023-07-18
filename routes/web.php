@@ -20,9 +20,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome1');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -44,19 +43,13 @@ Route::get('/profile', function () {
     return view('home');
 })->middleware('verified');
 
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::get('/addcar', [AddCarController::class, 'index'])->middleware('user')->name('addcar');
 Route::get('model/{id}', [AddCarController::class, 'modelss']);
 
 Route::post('store', [AddCarController::class, 'storeCar'])->middleware('verified')->name('storeCar');
 
-
 Route::get('/admin', [AdminController::class, 'index']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+// Route::post('/', [AddCarController::class, 'uploadImages'])->name('upload.images');

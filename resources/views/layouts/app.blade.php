@@ -87,6 +87,14 @@
             </div>
         </nav>
 
+        @guest
+        @else
+            @if (Auth::user()->email_verified_at == null)
+                <div class="d-block bg-danger text-light text-center">Your email is not verified!!! <a href="https://gmail.com/" target="_blank">check your email</a></div>
+            @endif
+        @endguest
+
+
         <main class="py-4">
             @yield('content')
         </main>
