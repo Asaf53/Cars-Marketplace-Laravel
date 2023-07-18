@@ -9,6 +9,8 @@ class fuel extends Model
 {
     use HasFactory;
 
+    public $timestamps = false; 
+
     protected $fillable = [
         'fuel'
     ];

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('gearboxes', function (Blueprint $table) {
             $table->id();
             $table->string('gearbox');
-            $table->timestamps();
         });
     }
 

@@ -9,6 +9,8 @@ class state extends Model
 {
     use HasFactory;
 
+    public $timestamps = false; 
+
     protected $fillable = [
         'state'
     ];
