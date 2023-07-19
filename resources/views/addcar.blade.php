@@ -29,7 +29,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 text-capitalize">
                                 <label for="Model" class="form-label">Model</label>
                                 <select class="form-select" id="Model" name="Model" required>
                                 </select>
@@ -221,7 +221,7 @@
                     success: function(data) {
                         $('select[name="Model"]').empty();
                         $.each(data, function(key, value) {
-                            $('select[name="Model"]').append('<option value="' +
+                            $('select[name="Model"]').append('<option class=" text-uppercase" value="' +
                                 key + '">' + value + '</option>');
                         });
                     }
