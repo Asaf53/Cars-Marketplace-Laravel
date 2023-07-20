@@ -5,7 +5,7 @@
         <main>
             <div class="py-5 text-center">
                 {{-- <img class="d-block mx-auto mb-4" src="#" alt="Logo" width="72" height="57"> --}}
-                <h1>{{ config('app.name', 'Laravel') }}</h1>
+                <h1>{{ config('app.name', 'Grand Prix Motor') }}</h1>
                 <h4>Upload Car</h4>
             </div>
 
@@ -137,9 +137,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 bg-secondary rounded bg-gray">
+                            <div class="col-12">
                                 <span>Car Photos</span>
-                                <input type="file" class="form-control filepond" name="images[]" id="photoUpload"
+                                <input type="file" class="form-control filepond" name="images[]" id="imageUpload"
                                     multiple>
                             </div>
 
@@ -185,28 +185,6 @@
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-{{-- filepond Scirpt --}}
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js">
-</script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js">
-</script>
-<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-
-<script>
-    FilePond.registerPlugin(
-        FilePondPluginFileValidateType,
-        FilePondPluginFileValidateSize
-    );
-
-    const inputElement = document.querySelector('input[type="file"]');
-    const pond = FilePond.create(inputElement, {
-        allowMultiple: true,
-        maxFiles: 20,
-        acceptedFileTypes: ['image/*'],
-        maxFileSize: '3MB'
-    });
-</script>
 
 {{-- Dependent Drop-Down List --}}
 <script type="text/javascript">
