@@ -62,4 +62,8 @@ class cars extends Model
     {
         return $this->belongsToMany(state::class);
     }
+    public function carImages()
+    {
+        return $this->hasMany(carsImages::class);
+    }
 }

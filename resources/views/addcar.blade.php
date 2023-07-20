@@ -139,7 +139,7 @@
 
                             <div class="col-12">
                                 <span>Car Photos</span>
-                                <input type="file" class="form-control filepond" name="images[]" id="imageUpload"
+                                <input type="file" class="form-control" name="images[]" id="imageUpload"
                                     multiple>
                             </div>
 

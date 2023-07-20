@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cars;
+use App\Models\carsImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +35,14 @@ class AddCarController extends Controller
 
     public function storeCar(Request $request)
     {
+
+        // $request->validate([
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        // ]);
+
+        // $fileName = time() . '.' . $request->input('image')->extension();
+        // $request->input('image')->storeAs('public/images', $fileName);
+
         $user = Auth::user()->id;
         $manufacturer = $request->input('Manufacturer');
         $model = $request->input('Model');
@@ -65,6 +74,13 @@ class AddCarController extends Controller
         $cars->description = $description;
         $cars->price = $price;
         $cars->save();
+
+        foreach ($request->input('images', []) as $imagesData) {
+            $images = new carsImages();
+            $images->car_id = $cars->id;
+            $images->image = $imagesData;
+            $images->save();
+        }
 
         return redirect()->route('home')->with('alert', 'Car Added Successfully');
     }
