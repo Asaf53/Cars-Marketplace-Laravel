@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -51,5 +51,3 @@ Route::post('store', [AddCarController::class, 'storeCar'])->middleware('verifie
 Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-
-// Route::post('/', [AddCarController::class, 'uploadImages'])->name('upload.images');

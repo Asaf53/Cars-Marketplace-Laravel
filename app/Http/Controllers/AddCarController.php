@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\cars;
-use App\Models\manufacturer;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class AddCarController extends Controller
 {
@@ -17,7 +13,7 @@ class AddCarController extends Controller
     {
         $manufacturer = DB::table("manufacturers")->orderBy('brand', 'asc')->pluck('brand', 'id');
         $color = DB::table("colors")->orderBy('color', 'asc')->pluck('color', 'id');
-        $bodystyle = DB::table("bodystyles")->orderBy('style', 'asc')->pluck('style', 'id');
+        $bodystyle = DB::table("bodystyles")->orderBy('id', 'asc')->pluck('style', 'id');
         $condition = DB::table("conditions")->orderBy('condition', 'asc')->pluck('Condition', 'id');
         $year = DB::table("years")->orderBy('id', 'asc')->pluck('year', 'id');
         $fuel = DB::table("fuels")->orderBy('fuel', 'asc')->pluck('fuel', 'id');
@@ -38,16 +34,6 @@ class AddCarController extends Controller
 
     public function storeCar(Request $request)
     {
-        // $images = $request->input('images');
-        // dd($images);
-
-        // foreach ($request->input('images') as $image) {
-        //     $filename = $image->store('public/images');
-        //     $url = Storage::url($filename);
-
-        //     // Save the image URL to the database or do something else with it
-        // }
-
         $user = Auth::user()->id;
         $manufacturer = $request->input('Manufacturer');
         $model = $request->input('Model');
@@ -81,25 +67,5 @@ class AddCarController extends Controller
         $cars->save();
 
         return redirect()->route('home')->with('alert', 'Car Added Successfully');
-        // dd($cars);
-
-
-        // if ($user->) {
-        // } else {
-        //     echo "not verified";
-        // }
     }
-    // public function uploadImages(Request $request)
-    // {
-    //     $images = $request->file('images');
-
-    //     foreach ($images as $image) {
-    //         $filename = $image->store('public/images');
-    //         $url = Storage::url($filename);
-
-    //         // Save the image URL to the database or do something else with it
-    //     }
-
-    //     return response()->json(['message' => 'Images uploaded successfully.']);
-    // }
 }

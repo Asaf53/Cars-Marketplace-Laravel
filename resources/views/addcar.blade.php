@@ -177,7 +177,7 @@
                             </div>
                         </div>
 
-                        <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Continue to checkout</button>
+                        <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Save</button>
                     </form>
                 </div>
             </div>
