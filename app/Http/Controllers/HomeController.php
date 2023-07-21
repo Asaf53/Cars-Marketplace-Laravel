@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cars;
+use App\Models\carsImages;
 use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -55,7 +56,15 @@ class HomeController extends Controller
             ->join('registrations', 'cars.registration_id', '=', 'registrations.id')
             ->join('states', 'cars.state_id', '=', 'states.id')
             ->join('users', 'cars.user_id', '=', 'users.id')->get();
+
+        $images = carsImages::select(
+            'cars_images.id',
+            'cars_images.image',
+            'cars_images.car_id',
+        )
+        ->join('cars', 'cars_images.id', '=', 'cars.id')->get();
+        // dd($images);
         // dd($cars);
-        return view('home', compact('cars'));
+        return view('home', compact('cars', 'images'));
     }
 }

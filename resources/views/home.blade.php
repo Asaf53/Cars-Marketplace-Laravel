@@ -14,6 +14,11 @@
             <div class="col-3 bg-danger order-first">
 
             </div>
+            @foreach ($images as $image)
+                <h4>{{ $image->car_id }}</h4>
+                <h4>{{ $image->id }}</h4>
+                <h4>{{ $image->image }}</h4>
+            @endforeach
             @foreach ($cars as $car)
                 <div class="col-8 bg-gray order-last">
                     <div class="p-2">

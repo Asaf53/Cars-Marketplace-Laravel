@@ -75,12 +75,32 @@ class AddCarController extends Controller
         $cars->price = $price;
         $cars->save();
 
-        foreach ($request->input('images', []) as $imagesData) {
-            $images = new carsImages();
-            $images->car_id = $cars->id;
-            $images->image = $imagesData;
-            $images->save();
+
+
+        // foreach ($request->input('images', []) as $imagesData) {
+        //     $images = new carsImages();
+        //     $images->car_id = $cars->id;
+        //     $images->image = $imagesData;
+        //     $images->save();
+        // }
+
+        foreach ($request->file('images', []) as $imageFile) {
+            // Ensure that the file is an image
+            if ($imageFile->isValid() && $imageFile->getClientOriginalExtension()) {
+                // Generate a unique name for the image to avoid naming conflicts
+                $imageName = uniqid('car_image_') . '.' . $imageFile->getClientOriginalExtension();
+
+                // Save the image to the specified folder (e.g., public/images/cars)
+                $imageFile->storeAs('public/images/cars', $imageName);
+
+                // Create a new carsImages record in the database
+                $images = new carsImages();
+                $images->car_id = $cars->id;
+                $images->image = $imageName;
+                $images->save();
+            }
         }
+
 
         return redirect()->route('home')->with('alert', 'Car Added Successfully');
     }

@@ -13,7 +13,7 @@
 
                 <div class="col-md-6 col-lg-8">
                     <h4 class="mb-3">Car Details</h4>
-                    <form class="needs-validation" method="post" action="{{ route('storeCar') }}">
+                    <form class="needs-validation" method="post" action="{{ route('storeCar') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
