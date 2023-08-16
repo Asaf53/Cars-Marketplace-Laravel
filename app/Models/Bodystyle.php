@@ -14,4 +14,9 @@ class Bodystyle extends Model
     protected $fillable = [
         'Bodystyle'
     ];
+
+    public function cars()
+    {
+        return $this->hasMany(cars::class, 'bodystyle_id');
+    }
 }

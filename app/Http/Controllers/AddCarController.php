@@ -40,9 +40,6 @@ class AddCarController extends Controller
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         // ]);
 
-        // $fileName = time() . '.' . $request->input('image')->extension();
-        // $request->input('image')->storeAs('public/images', $fileName);
-
         $user = Auth::user()->id;
         $manufacturer = $request->input('Manufacturer');
         $model = $request->input('Model');
@@ -74,15 +71,6 @@ class AddCarController extends Controller
         $cars->description = $description;
         $cars->price = $price;
         $cars->save();
-
-
-
-        // foreach ($request->input('images', []) as $imagesData) {
-        //     $images = new carsImages();
-        //     $images->car_id = $cars->id;
-        //     $images->image = $imagesData;
-        //     $images->save();
-        // }
 
         foreach ($request->file('images', []) as $imageFile) {
             // Ensure that the file is an image

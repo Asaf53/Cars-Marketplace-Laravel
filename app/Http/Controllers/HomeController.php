@@ -27,44 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cars = cars::select(
-            'cars.*',
-            'manufacturers.id',
-            'manufacturers.brand',
-            'models.id',
-            'models.name',
-            'users.id',
-            'users.name',
-            'users.email',
-            'colors.color',
-            'conditions.Condition',
-            'bodystyles.style',
-            'years.year',
-            'fuels.fuel',
-            'gearboxes.gearbox',
-            'registrations.registration',
-            'states.state',
-            DB::raw('models.name AS model'),
-        )->join('manufacturers', 'cars.manufacturer_id', '=', 'manufacturers.id')
-            ->join('models', 'cars.model_id', '=', 'models.id')
-            ->join('colors', 'cars.color_id', '=', 'colors.id')
-            ->join('conditions', 'cars.condition_id', '=', 'conditions.id')
-            ->join('bodystyles', 'cars.bodystyle_id', '=', 'bodystyles.id')
-            ->join('years', 'cars.year_id', '=', 'years.id')
-            ->join('fuels', 'cars.fuel_id', '=', 'fuels.id')
-            ->join('gearboxes', 'cars.gearbox_id', '=', 'gearboxes.id')
-            ->join('registrations', 'cars.registration_id', '=', 'registrations.id')
-            ->join('states', 'cars.state_id', '=', 'states.id')
-            ->join('users', 'cars.user_id', '=', 'users.id')->get();
-
-        $images = carsImages::select(
-            'cars_images.id',
-            'cars_images.image',
-            'cars_images.car_id',
-        )
-        ->join('cars', 'cars_images.id', '=', 'cars.id')->get();
-        // dd($images);
-        // dd($cars);
-        return view('home', compact('cars', 'images'));
+        $cars = Cars::all();
+        return view('home', compact('cars'));
     }
 }

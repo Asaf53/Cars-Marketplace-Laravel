@@ -9,9 +9,14 @@ class registration extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; 
+    public $timestamps = false;
 
     protected $fillable = [
         'registration'
     ];
+
+    public function cars()
+    {
+        return $this->hasMany(cars::class, 'registration_id');
+    }
 }

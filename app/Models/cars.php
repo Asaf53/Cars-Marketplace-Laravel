@@ -18,52 +18,56 @@ class cars extends Model
         'condition_id',
     ];
 
-    public function model()
+    public function users()
     {
-        return $this->belongsToMany(models::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function models()
+    {
+        return $this->belongsTo(models::class, 'model_id');
     }
 
-    public function manufacturer()
+    public function manufacturers()
     {
-        return $this->belongsToMany(manufacturer::class);
+        return $this->belongsTo(manufacturer::class, 'manufacturer_id');
     }
 
-    public function BodyStyle()
+    public function bodystyles()
     {
-        return $this->belongsToMany(BodyStyle::class);
+        return $this->belongsTo(Bodystyle::class, 'bodystyle_id');
     }
 
-    public function Color()
+    public function colors()
     {
-        return $this->belongsToMany(Color::class);
+        return $this->belongsTo(Color::class, 'color_id');
     }
 
-    public function Condition()
+    public function conditions()
     {
-        return $this->belongsToMany(Condition::class);
+        return $this->belongsTo(Condition::class, 'condition_id');
     }
-    public function Year()
+    public function years()
     {
-        return $this->belongsToMany(year::class);
+        return $this->belongsTo(year::class, 'year_id');
     }
-    public function Gearbox()
+    public function gearboxs()
     {
-        return $this->belongsToMany(gearbox::class);
+        return $this->belongsTo(gearbox::class, 'gearbox_id');
     }
-    public function Fuel()
+    public function fuels()
     {
-        return $this->belongsToMany(fuel::class);
+        return $this->belongsTo(fuel::class, 'fuel_id');
     }
-    public function Registration()
+    public function registrations()
     {
-        return $this->belongsToMany(registration::class);
+        return $this->belongsTo(registration::class, 'registration_id');
     }
-    public function State()
+    public function states()
     {
-        return $this->belongsToMany(state::class);
+        return $this->belongsTo(state::class, 'state_id');
     }
-    public function carImages()
+    public function images()
     {
-        return $this->hasMany(carsImages::class);
+        return $this->hasMany(carsImages::class, 'car_id');
     }
 }

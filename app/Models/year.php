@@ -9,9 +9,14 @@ class year extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; 
+    public $timestamps = false;
 
     protected $fillable = [
         'year'
     ];
+
+    public function cars()
+    {
+        return $this->hasMany(cars::class, 'year_id');
+    }
 }

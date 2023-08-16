@@ -14,4 +14,9 @@ class Color extends Model
     protected $fillable = [
         'Color'
     ];
+
+    public function cars()
+    {
+        return $this->hasMany(cars::class, 'color_id');
+    }
 }
