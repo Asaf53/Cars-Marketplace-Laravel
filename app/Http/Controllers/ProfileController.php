@@ -71,10 +71,10 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         $car = cars::find($id);
-        // $car->delete();
-        if(Storage::delete($car->images)) {
-            $car->delete();
-         }
+        $car->delete();
+        // if(Storage::delete($car->images)) {
+        //     $car->delete();
+        //  }
 
         // $image_path = public_path().'/'.$data->filename;
         // unlink($image_path);
