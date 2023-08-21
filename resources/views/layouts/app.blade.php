@@ -66,7 +66,7 @@
                                         <li><a class="dropdown-item" href="{{ route('admin') }}">Dashboard</a></li>
                                     @endif
                                     <li><a class="dropdown-item" href="{{ route('addcar') }}">New project...</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id ) }}">Profile</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('profiles.show', Auth::user()->id ) }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li>
                                         <hr class="dropdown-divider">

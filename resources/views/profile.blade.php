@@ -27,6 +27,7 @@
                                 <th>Mileage</th>
                                 <th>Exterior Color</th>
                                 <th>Description</th>
+                                <th>Photos</th>
                                 <th>Edit/Delete</th>
                             </tr>
                         </thead>
@@ -66,7 +67,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <form method="POST" action="{{ route('profile.destroy', $car->id) }}">
+                                        <form method="POST" action="{{ route('profiles.destroy', $car->id) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger">Delete</button>

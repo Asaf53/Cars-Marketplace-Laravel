@@ -53,4 +53,4 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
-Route::resource('profile', ProfileController::class);
+Route::resource('profiles', ProfileController::class);

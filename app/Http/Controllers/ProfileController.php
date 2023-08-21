@@ -70,18 +70,12 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        $car = cars::find($id);
-        $car->delete();
-        // if(Storage::delete($car->images)) {
-        //     $car->delete();
-        //  }
-
-        // $image_path = public_path().'/'.$data->filename;
-        // unlink($image_path);
-        // $data->delete();
-        // if(Storage::delete($data->filename)) {
-        //     $data->delete();
-        //  }
-        return redirect()->back();
+        $cars = cars::findOrFail($id);
+        foreach ($cars->images as $car) {
+            $image_path = 'storage/images/cars/'.$car->image;
+            unlink($image_path);
+        }
+        $cars->delete();
+        return redirect()->route('profiles.show', Auth::user()->id)->with('alert', 'Car Deleted Successfully');
     }
 }

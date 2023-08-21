@@ -12,7 +12,7 @@
     <div class="container w-100">
         <div class="row gap-1 d-flex justify-content-center">
             <div class="col-md-2 bg-danger height-75">
-                
+
                 <div class="sort mt-3">
                     <h6 class="mb-0"><b>Price</b></h6>
                     <div class="d-flex gap-1">
