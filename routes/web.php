@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddCarController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -51,3 +52,5 @@ Route::post('store', [AddCarController::class, 'storeCar'])->middleware('verifie
 Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+Route::resource('profile', ProfileController::class);

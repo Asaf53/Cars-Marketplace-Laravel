@@ -122,3 +122,11 @@ main {
 .w-35{
     width: 35% !important;
 }
+
+.mw-35{
+    max-width: 35% !important;
+}
+
+.w-10{
+    width: 10% !important;
+}
