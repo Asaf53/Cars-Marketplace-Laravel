@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\cars;
 use App\Models\carsImages;
+use App\Rules\NoSpecialCharacters;
+use App\Rules\MultipleImagesValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class AddCarController extends Controller
 {
@@ -36,9 +39,22 @@ class AddCarController extends Controller
     public function storeCar(Request $request)
     {
 
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        // ]);
+        $request->validate([
+            'Manufacturer' => ['required'],
+            'Model' => ['required'],
+            'Bodystyle' => ['required'],
+            'Color' => ['required'],
+            'Condition' => ['required'],
+            'Year' => ['required'],
+            'Fuel' => ['required'],
+            'GearBox' => ['required'],
+            'Registration' => ['required'],
+            'State' => ['required'],
+            'Mileage' => ['required', new NoSpecialCharacters()],
+            'Description' => ['required', new NoSpecialCharacters()],
+            'Price' => ['required', new NoSpecialCharacters()],
+            'images' => ['required', 'array', new MultipleImagesValidation()]
+        ]);
 
         $user = Auth::user()->id;
         $manufacturer = $request->input('Manufacturer');
@@ -76,10 +92,17 @@ class AddCarController extends Controller
             // Ensure that the file is an image
             if ($imageFile->isValid() && $imageFile->getClientOriginalExtension()) {
                 // Generate a unique name for the image to avoid naming conflicts
-                $imageName = uniqid('car_image_') . '.' . $imageFile->getClientOriginalExtension();
+                $imageName = uniqid('car_image_' . $cars->id) . '.' . $imageFile->getClientOriginalExtension();
 
-                // Save the image to the specified folder (e.g., public/images/cars)
-                $imageFile->storeAs('public/images/cars', $imageName);
+
+                $image = Image::make($imageFile); // Open the image using Intervention Image
+
+                // Resize the image
+                $image->resize(1000, 600);
+
+                // Save the resized image using Laravel's file handling
+                $imagePath = public_path('storage/images/cars/' . $imageName);
+                $image->save($imagePath);
 
                 // Create a new carsImages record in the database
                 $images = new carsImages();
@@ -88,7 +111,6 @@ class AddCarController extends Controller
                 $images->save();
             }
         }
-
 
         return redirect()->route('home')->with('alert', 'Car Added Successfully');
     }

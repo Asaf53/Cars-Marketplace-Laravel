@@ -67,13 +67,12 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <form method="POST" action="{{ route('profiles.destroy', $car->id) }}">
+                                        <a href="{{ route('profiles.edit', $car->id) }}" class="btn btn-warning">Edit</a>
+                                        <form method="POST" action="{{ route('profiles.destroy', $car->id) }} " class="d-inline-block">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger">Delete</button>
                                         </form>
-                                        {{-- <a href="{{ route('profile.edit', $car->id) }}" class="btn btn-warning">Edit</a> --}}
-                                        {{-- <a href="{{ route('profile.destroy', $car->id) }}" class="btn btn-danger">Delete</a> --}}
                                     </td>
                                 </tr>
                             </tbody>
