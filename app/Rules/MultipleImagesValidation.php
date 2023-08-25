@@ -6,6 +6,9 @@ use Illuminate\Contracts\Validation\Rule;
 
 class MultipleImagesValidation implements Rule
 {
+    protected $failedExtension = false;
+    protected $failedSize = false;
+
     public function passes($attribute, $value)
     {
         foreach ($value as $file) {
@@ -15,22 +18,30 @@ class MultipleImagesValidation implements Rule
             // Example checks:
             // Check file size (in bytes)
             if ($file->getSize() > 5000000) { // 5MB
-                return false; // Validation fails
+                $this->failedSize = true; // Mark size validation as failed
             }
 
             // Check allowed extensions
             $allowedExtensions = ['jpg', 'jpeg', 'png'];
             $extension = strtolower($file->getClientOriginalExtension());
             if (!in_array($extension, $allowedExtensions)) {
-                return false; // Validation fails
+                $this->failedExtension = true; // Mark extension validation as failed
             }
         }
 
-        return true; // All files passed validation
+        return !$this->failedSize && !$this->failedExtension; // All files passed validation
     }
 
     public function message()
     {
+        if ($this->failedSize && $this->failedExtension) {
+            return 'Images have invalid extensions and exceed the file size limit.';
+        } elseif ($this->failedSize) {
+            return 'One or more images exceed the file size limit.';
+        } elseif ($this->failedExtension) {
+            return 'One or more images have invalid extensions.';
+        }
+
         return 'Validation failed for the uploaded images array.';
     }
 }

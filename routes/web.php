@@ -4,6 +4,7 @@ use App\Http\Controllers\AddCarController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ViewCarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -54,3 +55,4 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::resource('profiles', ProfileController::class);
+Route::resource('cars', ViewCarController::class);

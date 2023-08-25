@@ -82,7 +82,7 @@
                                             <div class="carousel-inner">
                                                 @foreach ($car->images as $image)
                                                     <div class="carousel-item active">
-                                                        <a href="#">
+                                                        <a href="{{ route('cars.show', $car->id) }}">
                                                             <img src="{{ asset('storage/images/cars/' . $image->image) }}"
                                                                 class="d-block w-100" alt="Car Image">
                                                         </a>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="card-body p-0 ps-3">
                                         <h5 class="card-title text-decoration-underline"><a
-                                                href="#">{{ $car->manufacturers->brand . ' ' . $car->models->name . ' ' . $car->years->year }}</a>
+                                                href="{{ route('cars.show', $car->id) }}">{{ $car->manufacturers->brand . ' ' . $car->models->name . ' ' . $car->years->year }}</a>
                                         </h5>
                                         <h5>$ {{ $car->price }}</h5>
                                         <h6><b>Mileage:</b> {{ $car->mileage }} km</h6>
