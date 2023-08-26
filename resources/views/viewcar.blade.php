@@ -3,6 +3,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
+                <h6>Published: {{ $car->created_at->format('d/m/Y H:i') }}</h6>
                 <div class="row">
                     <div class="col-md-9">
                         <div id="car{{ $car->id }}" class="carousel slide carousel-fade">
@@ -33,10 +34,18 @@
                             <div class="card-body">
                                 <h5 class="card-title"><b>{{ $car->manufacturers->brand . ' ' . $car->models->name }}</b>
                                 </h5>
-                                <h5 class="card-title"><b>$ {{ number_format($car->price, 2) }}</b></h5>
+                                <h6 class="blue"><a href="https://maps.google.com/?q={{ $car->states->state }}"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
+                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                        stroke="#0d6efd" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                                        <path
+                                            d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                                    </svg>{{ $car->states->state }}</a></h6>
                                 <hr>
+                                <h5 class="card-title"><b>$ {{ number_format($car->price, 2) }}</b></h5>
                                 <h6><b>{{ $car->users->name }}</b></h6>
-                                <h6><b>Phone: {{ $car->users->phone }} 070832727</b></h6>
+                                <h6><b>Phone: <a href="tel:{{ $car->users->phone }}">070832727</a></b></h6>
                                 <div class="d-grid">
                                     <a href="mailto:{{ $car->users->email }}" class="btn btn-danger text-center"><svg
                                             xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"
@@ -54,12 +63,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-9 mt-4">
-                        <div class="border bg-white ps-5 py-3 w-100">
+                        <div class="border bg-white ps-2 py-3 w-100">
                             <div class="d-grid">
                                 <div class="row row-cols-3">
                                     <div class="col d-flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-road"
-                                            width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5"
+                                            width="45" height="45" viewBox="0 0 24 24" stroke-width="1.5"
                                             stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <path d="M4 19l4 -14" />
@@ -74,8 +83,8 @@
                                         </div>
                                     </div>
                                     <div class="col d-flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-calendar-event" width="52"
-                                            height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
+                                            class="icon icon-tabler icon-tabler-calendar-event" width="45"
+                                            height="45" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <path
@@ -91,7 +100,7 @@
                                         </div>
                                     </div>
                                     <div class="col d-flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gauge" width="52" height="52"
+                                            class="icon icon-tabler icon-tabler-gauge" width="45" height="45"
                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -102,13 +111,14 @@
                                         </svg>
                                         <div class="d-flex flex-column">
                                             <span><small>Power</small></span>
-                                            <h5><b>{{ $car->power }}650 Hp</b></h5>
+                                            <h5><b>{{ round($car->horsepower / 1.36) . ' kW' . ' (' . $car->horsepower . ')' }}
+                                                    Hp</b></h5>
                                         </div>
                                     </div>
                                     <div class="col d-flex">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-manual-gearbox" width="52"
-                                            height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
+                                            class="icon icon-tabler icon-tabler-manual-gearbox" width="45"
+                                            height="45" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <path d="M5 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -126,7 +136,7 @@
                                         </div>
                                     </div>
                                     <div class="col d-flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-user" width="52" height="52"
+                                            class="icon icon-tabler icon-tabler-user" width="45" height="45"
                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -139,8 +149,8 @@
                                         </div>
                                     </div>
                                     <div class="col d-flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gas-station" width="52"
-                                            height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
+                                            class="icon icon-tabler icon-tabler-gas-station" width="45"
+                                            height="45" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <path d="M14 11h1a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 3 0v-7l-3 -3" />
@@ -178,7 +188,7 @@
                                     <div class="col-6"><b>Category</b></div>
                                     <div class="col-6">{{ $car->bodystyles->style }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row bg-gray">
                                     <div class="col-6"><b>Mileage</b></div>
                                     <div class="col-6">{{ $car->mileage }}</div>
                                 </div>
@@ -186,15 +196,17 @@
                                     <div class="col-6"><b>Condition</b></div>
                                     <div class="col-6">{{ $car->conditions->Condition }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row bg-gray">
                                     <div class="col-6"><b>Power</b></div>
-                                    <div class="col-6">{{ $car->power }}</div>
+                                    <div class="col-6">
+                                        {{ round($car->horsepower / 1.36) . ' kW' . ' (' . $car->horsepower . ')' }} Hp
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6"><b>Fuel</b></div>
                                     <div class="col-6">{{ $car->fuels->fuel }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row bg-gray">
                                     <div class="col-6"><b>Gearbox</b></div>
                                     <div class="col-6">{{ $car->gearboxs->gearbox }}</div>
                                 </div>
@@ -202,7 +214,7 @@
                                     <div class="col-6"><b>Registration</b></div>
                                     <div class="col-6">{{ $car->years->year }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row bg-gray">
                                     <div class="col-6"><b>Colour</b></div>
                                     <div class="col-6">{{ $car->colors->color }}</div>
                                 </div>
@@ -219,4 +231,4 @@
                 });
             </script>
         @endsection
-        @extends('layouts.footer')
+        {{-- @extends('layouts.footer') --}}

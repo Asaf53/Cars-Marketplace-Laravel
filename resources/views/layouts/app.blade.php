@@ -12,6 +12,10 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <script src="https://kit.fontawesome.com/beafc8c760.js" crossorigin="anonymous"></script>
@@ -67,7 +71,8 @@
                                         <li><a class="dropdown-item" href="{{ route('admin') }}">Dashboard</a></li>
                                     @endif
                                     <li><a class="dropdown-item" href="{{ route('addcar') }}">New project...</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('profiles.show', Auth::user()->id ) }}">Profile</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('profiles.show', Auth::user()->id) }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -91,7 +96,8 @@
         @guest
         @else
             @if (Auth::user()->email_verified_at == null)
-                <div class="d-block bg-danger text-light text-center">Your email is not verified!!! <a href="https://gmail.com/" target="_blank">check your email</a></div>
+                <div class="d-block bg-danger text-light text-center">Your email is not verified!!! <a
+                        href="https://gmail.com/" target="_blank">check your email</a></div>
             @endif
         @endguest
 
@@ -100,7 +106,7 @@
             @yield('content')
         </main>
 
-        <footer>
+        <footer class="py-4">
             @yield('footer')
         </footer>
     </div>
