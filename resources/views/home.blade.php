@@ -76,7 +76,7 @@
                                 @endforeach
                             </select>
                             <select class="form-select" aria-label="Default select example" name="YearTo">
-                                <option selected value="">Any</option>
+                                <option selected value="1">Any</option>
                                 @foreach ($year as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
@@ -88,9 +88,40 @@
                         <div class="d-flex gap-1">
                             <select class="form-select" aria-label="Default select example" name="KmFrom">
                                 <option selected value="">Any</option>
+                                <option value="5000">5.000 km</option>
+                                <option value="10000">10.000 km</option>
+                                <option value="20000">20.000 km</option>
+                                <option value="30000">30.000 km</option>
+                                <option value="40000">40.000 km</option>
+                                <option value="50000">50.000 km</option>
+                                <option value="60000">60.000 km</option>
+                                <option value="70000">70.000 km</option>
+                                <option value="80000">80.000 km</option>
+                                <option value="90000">90.000 km</option>
+                                <option value="100000">100.000 km</option>
+                                <option value="125000">125.000 km</option>
+                                <option value="150000">150.000 km</option>
+                                <option value="200000">200.000 km</option>
                             </select>
                             <select class="form-select" aria-label="Default select example" name="KmTo">
                                 <option selected value="">Any</option>
+                                <option value="5000">5.000 km</option>
+                                <option value="10000">10.000 km</option>
+                                <option value="20000">20.000 km</option>
+                                <option value="30000">30.000 km</option>
+                                <option value="40000">40.000 km</option>
+                                <option value="50000">50.000 km</option>
+                                <option value="60000">60.000 km</option>
+                                <option value="70000">70.000 km</option>
+                                <option value="80000">80.000 km</option>
+                                <option value="90000">90.000 km</option>
+                                <option value="100000">100.000 km</option>
+                                <option value="125000">125.000 km</option>
+                                <option value="150000">150.000 km</option>
+                                <option value="200000">200.000 km</option>
+                                <option value="300000">300.000 km</option>
+                                <option value="400000">400.000 km</option>
+                                <option value="500000">500.000 km</option>
                             </select>
                         </div>
                     </div>
@@ -133,11 +164,11 @@
             <div class="col-md-7">
                 <div class="container">
                     <div class="dropdown mb-1 d-flex justify-content-between text-center align-items-center">
-                        <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle rounded-0" type="button"
+                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Sort
                         </button>
-                        <span>{{ $count . ' '}} Ads matching your search</span>
+                        <span>{{ $count . ' ' }} Ads matching your search</span>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item" href="{{ route('home', ['sort' => 'price_asc']) }}">Price
                                     (lowest
@@ -191,8 +222,8 @@
                                         <h5 class="card-title text-decoration-underline"><a
                                                 href="{{ route('cars.show', $car->id) }}">{{ $car->manufacturers->brand . ' ' . $car->models->name . ' ' . $car->years->year }}</a>
                                         </h5>
-                                        <h5>$ {{ $car->price }}</h5>
-                                        <h6><b>Mileage:</b> {{ $car->mileage }} km</h6>
+                                        <h5>$ {{ number_format($car->price, 0) }}</h5>
+                                        <h6><b>Mileage:</b> {{ number_format($car->mileage, 0) }} km</h6>
                                         <h6><b>Year:</b> {{ $car->years->year }}</h6>
                                         {{-- <h5>{{ $car->users->name }}</h5> --}}
                                     </div>

@@ -48,6 +48,8 @@ class HomeController extends Controller
         $conditions = $request->input('Condition');
         $YearFrom = $request->input('YearFrom');
         $YearTo = $request->input('YearTo');
+        $KmFrom = $request->input('KmFrom');
+        $KmTo = $request->input('KmTo');
         $fuels = $request->input('Fuel');
         $gearboxs = $request->input('Gearbox');
         $registrations = $request->input('Registration');
@@ -68,8 +70,11 @@ class HomeController extends Controller
         if ($conditions) {
             $query->where('condition_id', '=', $conditions);
         }
-        if ($YearFrom || $YearTo) {
+        if ($YearTo && $YearFrom) {
             $query->whereBetween('year_id', [$YearTo, $YearFrom]);
+        }
+        if ($KmTo && $KmFrom) {
+            $query->whereBetween('mileage', [$KmFrom, $KmTo]);
         }
         if ($fuels) {
             $query->where('fuel_id', '=', $fuels);

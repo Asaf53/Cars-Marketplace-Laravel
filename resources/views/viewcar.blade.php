@@ -43,7 +43,7 @@
                                             d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
                                     </svg>{{ $car->states->state }}</a></h6>
                                 <hr>
-                                <h5 class="card-title"><b>$ {{ number_format($car->price, 2) }}</b></h5>
+                                <h5 class="card-title"><b>$ {{ number_format($car->price, 0) }}</b></h5>
                                 <h6><b>{{ $car->users->name }}</b></h6>
                                 <h6><b>Phone: <a href="tel:{{ $car->users->phone }}">070832727</a></b></h6>
                                 <div class="d-grid">
@@ -65,7 +65,7 @@
                     <div class="col-md-9 mt-4">
                         <div class="border bg-white ps-2 py-3 w-100">
                             <div class="d-grid">
-                                <div class="row row-cols-3">
+                                <div class="row row-cols-2 row-cols-md-3">
                                     <div class="col d-flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-road"
                                             width="45" height="45" viewBox="0 0 24 24" stroke-width="1.5"
@@ -79,7 +79,7 @@
                                         </svg>
                                         <div class="d-flex flex-column">
                                             <span><small>Mileage</small></span>
-                                            <h5><b>{{ $car->mileage }}&nbsp;km</b></h5>
+                                            <h5><b>{{ number_format($car->mileage, 0) }}&nbsp;km</b></h5>
                                         </div>
                                     </div>
                                     <div class="col d-flex"><svg xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="row bg-gray">
                                     <div class="col-6"><b>Mileage</b></div>
-                                    <div class="col-6">{{ $car->mileage }}</div>
+                                    <div class="col-6">{{ number_format($car->mileage, 0) }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6"><b>Condition</b></div>
