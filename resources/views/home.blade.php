@@ -11,53 +11,139 @@
 
     <div class="container w-100">
         <div class="row gap-1 d-flex justify-content-center">
-            <div class="col-md-2 bg-danger height-75">
-
-                <div class="sort mt-3">
-                    <h6 class="mb-0"><b>Price</b></h6>
-                    <div class="d-flex gap-1">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected value="">Any</option>
-                          </select>
-                          <select class="form-select" aria-label="Default select example">
-                            <option selected value="">Any</option>
-                          </select>
+            <div class="col-md-2 bg-white border border-grey height-100">
+                <form method="get">
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Manufacturer</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" id="Manufacturer"
+                                name="Manufacturer">
+                                <option selected value="">Any</option>
+                                @foreach ($manufacturer as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="sort mt-3">
-                    <h6 class="mb-0"><b>First registration (date)</b></h6>
-                    <div class="d-flex gap-1">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected value="">Any</option>
-                          </select>
-                          <select class="form-select" aria-label="Default select example">
-                            <option selected value="">Any</option>
-                          </select>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Model</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" id="Model" name="Model">
+                                <option selected value="">Any</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="sort mt-3">
-                    <h6 class="mb-0"><b>Kilometre</b></h6>
-                    <div class="d-flex gap-1">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected value="">Any</option>
-                          </select>
-                          <select class="form-select" aria-label="Default select example">
-                            <option selected value="">Any</option>
-                          </select>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Bodystyle</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="Bodystyle">
+                                <option selected value="">Any</option>
+                                @foreach ($bodystyle as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Color</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="Color">
+                                <option selected value="">Any</option>
+                                @foreach ($color as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Conditions</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="Condition">
+                                <option selected value="">Any</option>
+                                @foreach ($condition as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>First registration (date)</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="YearFrom">
+                                <option selected value="">Any</option>
+                                @foreach ($year as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                            <select class="form-select" aria-label="Default select example" name="YearTo">
+                                <option selected value="">Any</option>
+                                @foreach ($year as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Kilometre</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="KmFrom">
+                                <option selected value="">Any</option>
+                            </select>
+                            <select class="form-select" aria-label="Default select example" name="KmTo">
+                                <option selected value="">Any</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>GearBox</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="Gearbox">
+                                <option selected value="">Any</option>
+                                @foreach ($gearbox as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Fuel</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="Fuel">
+                                <option selected value="">Any</option>
+                                @foreach ($fuel as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Registration</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="Registration">
+                                <option selected value="">Any</option>
+                                @foreach ($registration as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100 mt-2 mb-2">Search</button>
+                </form>
             </div>
             <div class="col-md-7">
                 <div class="container">
-                    <div class="dropdown mb-1">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <div class="dropdown mb-1 d-flex justify-content-between text-center align-items-center">
+                        <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" id="dropdownMenuButton"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Sort
                         </button>
+                        <span>{{ $count . ' '}} Ads matching your search</span>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{ route('home', ['sort' => 'price_asc']) }}">Price (lowest
+                            <li><a class="dropdown-item" href="{{ route('home', ['sort' => 'price_asc']) }}">Price
+                                    (lowest
                                     first)</a></li>
-                            <li><a class="dropdown-item" href="{{ route('home', ['sort' => 'price_desc']) }}">Price (highest
+                            <li><a class="dropdown-item" href="{{ route('home', ['sort' => 'price_desc']) }}">Price
+                                    (highest
                                     first)</a></li>
                             <li><a class="dropdown-item" href="{{ route('home', ['sort' => 'mileage_asc']) }}">Mileage
                                     (lowest first)</a></li>
@@ -76,8 +162,8 @@
                     <div class="row">
                         @foreach ($cars as $car)
                             <div class="col-sm-12 mb-3">
-                                <div class="card d-flex flex-row rounded-0">
-                                    <div class="card-image w-35 mw-35">
+                                <div class="card d-flex flex-md-row rounded-0 flex-column">
+                                    <div class="card-image w-md-35 mw-md-35">
                                         <div id="car{{ $car->id }}" class="carousel slide carousel-fade">
                                             <div class="carousel-inner">
                                                 @foreach ($car->images as $image)
@@ -155,9 +241,34 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(".carousel .carousel-item").nextAll().removeClass("active");
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select[name="Manufacturer"]').on('change', function() {
+                var manufacturerID = $(this).val();
+                if (manufacturerID) {
+                    $.ajax({
+                        url: '/model/' + manufacturerID,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            // $('select[name="Model"]').empty();
+                            $.each(data, function(key, value) {
+                                $('select[name="Model"]').append(
+                                    '<option class=" text-uppercase" value="' +
+                                    key + '">' + value + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('select[name="Model"]').empty();
+                }
+            });
         });
     </script>
 @endsection

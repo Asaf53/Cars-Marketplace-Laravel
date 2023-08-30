@@ -56,3 +56,5 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::resource('profiles', ProfileController::class);
 Route::resource('cars', ViewCarController::class);
+
+Route::get('model/{id}', [HomeController::class, 'modelss']);

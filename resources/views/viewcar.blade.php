@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-2">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h6>Published: {{ $car->created_at->format('d/m/Y H:i') }}</h6>
@@ -111,7 +111,7 @@
                                         </svg>
                                         <div class="d-flex flex-column">
                                             <span><small>Power</small></span>
-                                            <h5><b>{{ round($car->horsepower / 1.36) . ' kW' . ' (' . $car->horsepower . ')' }}
+                                            <h5><b>{{ round($car->power / 1.36) . ' kW' . ' (' . $car->power . ')' }}
                                                     Hp</b></h5>
                                         </div>
                                     </div>
@@ -199,7 +199,7 @@
                                 <div class="row bg-gray">
                                     <div class="col-6"><b>Power</b></div>
                                     <div class="col-6">
-                                        {{ round($car->horsepower / 1.36) . ' kW' . ' (' . $car->horsepower . ')' }} Hp
+                                        {{ round($car->power / 1.36) . ' kW' . ' (' . $car->power . ')' }} Hp
                                     </div>
                                 </div>
                                 <div class="row">

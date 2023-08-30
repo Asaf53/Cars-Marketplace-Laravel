@@ -53,6 +53,7 @@ class AddCarController extends Controller
             'Mileage' => ['required', new NoSpecialCharacters()],
             'Description' => ['required', new NoSpecialCharacters()],
             'Price' => ['required', new NoSpecialCharacters()],
+            'Power' => ['required', new NoSpecialCharacters()],
             'images' => ['required', 'array', new MultipleImagesValidation()]
         ]);
 
@@ -70,6 +71,7 @@ class AddCarController extends Controller
         $mileage = $request->input('Mileage');
         $description = $request->input('Description');
         $price = $request->input('Price');
+        $power = $request->input('Power');
 
         $cars = new cars();
         $cars->user_id = $user;
@@ -86,6 +88,7 @@ class AddCarController extends Controller
         $cars->mileage = $mileage;
         $cars->description = $description;
         $cars->price = $price;
+        $cars->power = $power;
         $cars->save();
 
         foreach ($request->file('images', []) as $imageFile) {

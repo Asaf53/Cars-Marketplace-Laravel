@@ -185,6 +185,13 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="col-sm-3">
+                                <label for="Power" class="form-label">Power</label>
+                                <input type="text" class="form-control" name="Power" id="Power">
+                                @error('Power')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
                         <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Save</button>

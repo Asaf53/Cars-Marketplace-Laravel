@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreignId('state_id')->constrained()->onDelete('cascade');
             $table->foreignId('registration_id')->constrained()->onDelete('cascade');
             $table->integer('mileage');
-            $table->integer('horsepower');
+            $table->integer('power');
             $table->string('description');
             $table->integer('price');
             $table->timestamps();
