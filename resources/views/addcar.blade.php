@@ -9,9 +9,10 @@
                 <h4>Upload Car</h4>
             </div>
 
-            <div class="row g-2">
+            <div class="row g-2 justify-content-center align-items-center">
 
                 <div class="col-md-6 col-lg-8">
+                {{-- <div class="col-8"> --}}
                     <h4 class="mb-3">Car Details</h4>
                     <form class="needs-validation" method="post" action="{{ route('storeCar') }}"
                         enctype="multipart/form-data">
@@ -94,7 +95,7 @@
 
                             <div class="col-sm-6">
                                 <label for="Mileage" class="form-label">Mileage</label>
-                                <input type="text" class="form-control" name="Mileage" id="Mileage" required>
+                                <input type="number" class="form-control" name="Mileage" id="Mileage" required>
                                 @error('Mileage')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -139,7 +140,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <span>Car Photos</span>
                                 <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
                                 @error('images')
@@ -147,7 +148,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="state" class="form-label">State</label>
                                 <select class="form-select" id="state" name="State" required>
                                     <option value="">Choose...</option>
@@ -160,17 +161,9 @@
                                 @enderror
                             </div>
 
-                            <div class="col-sm-5">
-                                <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="Description" id="description"></textarea>
-                                @error('Description')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
                             <div class="col-sm-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" class="form-control" name="Price" id="price">
+                                <input type="number" class="form-control" name="Price" id="price">
                                 {{-- <div class="form-check">
                                     <input id="euro" name="paymentMethod" type="radio" class="form-check-input"
                                         required>
@@ -185,9 +178,18 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-sm-3">
+
+                            <div class="col-sm-6">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" name="Description" id="description"></textarea>
+                                @error('Description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-sm-6">
                                 <label for="Power" class="form-label">Power</label>
-                                <input type="text" class="form-control" name="Power" id="Power">
+                                <input type="number" class="form-control" name="Power" id="Power">
                                 @error('Power')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

@@ -27,6 +27,7 @@
                                 <th>Mileage</th>
                                 <th>Exterior Color</th>
                                 <th>Description</th>
+                                <th>Power</th>
                                 <th>Photos</th>
                                 <th>Edit/Delete</th>
                             </tr>
@@ -44,6 +45,7 @@
                                     <td>{{ $car->mileage }}</td>
                                     <td>{{ $car->colors->color }}</td>
                                     <td>{{ $car->description }}</td>
+                                    <td>{{ $car->power }}</td>
                                     <td class="w-10">
                                         <div id="car{{ $car->id }}" class="carousel slide carousel-fade">
                                             <div class="carousel-inner">

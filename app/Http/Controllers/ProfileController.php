@@ -7,7 +7,7 @@ use App\Models\carsImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -39,8 +39,8 @@ class ProfileController extends Controller
      */
     public function show(string $id)
     {
-        $user_id = Auth::user()->id;
-        $cars = cars::all()->where('user_id', '=', $user_id);
+        $user_id = Auth::id();
+        $cars = cars::all('*')->where('user_id', '=', $user_id);
         // dd($cars);
         // foreach ($cars as $car) {
         //     echo $car->manufacturers->brand;
@@ -75,7 +75,7 @@ class ProfileController extends Controller
     {
         $car = cars::findOrFail($id);
 
-        $user = Auth::user()->id;
+        $user = Auth::id();
         $manufacturer = $request->input('Manufacturer');
         $model = $request->input('Model');
         $bodystyle = $request->input('Bodystyle');
@@ -89,6 +89,7 @@ class ProfileController extends Controller
         $mileage = $request->input('Mileage');
         $description = $request->input('Description');
         $price = $request->input('Price');
+        $power = $request->input('Power');
 
         $car->user_id = $user;
         $car->manufacturer_id = $manufacturer;
@@ -104,9 +105,35 @@ class ProfileController extends Controller
         $car->mileage = $mileage;
         $car->description = $description;
         $car->price = $price;
+        $car->power = $power;
+
+        foreach ($request->file('images', []) as $imageFile) {
+            // Ensure that the file is an image
+            if ($imageFile->isValid() && $imageFile->getClientOriginalExtension()) {
+                // Generate a unique name for the image to avoid naming conflicts
+                $imageName = uniqid('car_image_' . $car->id) . '.' . $imageFile->getClientOriginalExtension();
+
+
+                $image = Image::make($imageFile); // Open the image using Intervention Image
+
+                // Resize the image
+                $image->resize(1000, 600);
+
+                // Save the resized image using Laravel's file handling
+                $imagePath = public_path('storage/images/cars/' . $imageName);
+                $image->save($imagePath);
+
+                // Create a new carsImages record in the database
+                $images = new carsImages();
+                $images->car_id = $car->id;
+                $images->image = $imageName;
+                $images->save();
+            }
+        }
+
         $car->update($request->all());
 
-        return redirect()->route('profiles.show', Auth::user()->id)->with('alert', 'Car edited successffully');
+        return redirect()->route('profiles.show', Auth::id())->with('alert', 'Car edited successffully');
     }
 
     /**
@@ -120,6 +147,6 @@ class ProfileController extends Controller
             unlink($image_path);
         }
         $cars->delete();
-        return redirect()->route('profiles.show', Auth::user()->id)->with('alert', 'Car Deleted Successfully');
+        return redirect()->route('profiles.show', Auth::id())->with('alert', 'Car Deleted Successfully');
     }
 }

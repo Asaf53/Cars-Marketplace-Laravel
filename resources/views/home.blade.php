@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="sort mt-3">
-                        <h6 class="mb-0"><b>First registration (date)</b></h6>
+                        <h6 class="mb-0"><b>Registration</b></h6>
                         <div class="d-flex gap-1">
                             <select class="form-select" aria-label="Default select example" name="YearFrom">
                                 <option selected value="">Any</option>
@@ -122,6 +122,42 @@
                                 <option value="300000">300.000 km</option>
                                 <option value="400000">400.000 km</option>
                                 <option value="500000">500.000 km</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sort mt-3">
+                        <h6 class="mb-0"><b>Power</b></h6>
+                        <div class="d-flex gap-1">
+                            <select class="form-select" aria-label="Default select example" name="PowerFrom">
+                                <option selected value="">Any</option>
+                                <option value="10">10 hp</option>
+                                <option value="50">50 hp</option>
+                                <option value="100">100 hp</option>
+                                <option value="150">150 hp</option>
+                                <option value="200">200 hp</option>
+                                <option value="250">250 hp</option>
+                                <option value="300">300 hp</option>
+                                <option value="400">400 hp</option>
+                                <option value="500">500 hp</option>
+                                <option value="600">600 hp</option>
+                            </select>
+                            <select class="form-select" aria-label="Default select example" name="PowerTo">
+                                <option selected value="">Any</option>
+                                <option value="10">10 hp</option>
+                                <option value="50">50 hp</option>
+                                <option value="100">100 hp</option>
+                                <option value="150">150 hp</option>
+                                <option value="200">200 hp</option>
+                                <option value="250">250 hp</option>
+                                <option value="300">300 hp</option>
+                                <option value="400">400 hp</option>
+                                <option value="500">500 hp</option>
+                                <option value="600">600 hp</option>
+                                <option value="700">700 hp</option>
+                                <option value="800">800 hp</option>
+                                <option value="900">900 hp</option>
+                                <option value="1000">1000 hp</option>
+                                <option value="1500">1500 hp</option>
                             </select>
                         </div>
                     </div>

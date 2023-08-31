@@ -54,6 +54,8 @@ class HomeController extends Controller
         $gearboxs = $request->input('Gearbox');
         $registrations = $request->input('Registration');
         $states = $request->input('State');
+        $PowerFrom = $request->input('PowerFrom');
+        $PowerTo = $request->input('PowerTo');
 
         if ($manufacturers) {
             $query->where('manufacturer_id', '=', $manufacturers);
@@ -75,6 +77,9 @@ class HomeController extends Controller
         }
         if ($KmTo && $KmFrom) {
             $query->whereBetween('mileage', [$KmFrom, $KmTo]);
+        }
+        if ($PowerTo && $PowerFrom) {
+            $query->whereBetween('power', [$KmFrom, $KmTo]);
         }
         if ($fuels) {
             $query->where('fuel_id', '=', $fuels);

@@ -10,6 +10,29 @@
             </div>
 
             <div class="row g-2">
+                <div class="col-md-3 order-1">
+                    @foreach ($car->images as $image)
+                        <form action="{{ route('kotkot', $image->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="mt-3 border-0 bg-transparent position-absolute d-flex justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash"
+                                    width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M4 7l16 0" />
+                                    <path d="M10 11l0 6" />
+                                    <path d="M14 11l0 6" />
+                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                </svg>
+                            </button>
+                        </form>
+                        <img src="{{ asset('storage/images/cars/' . $image->image) }}" class="d-block w-100"
+                            alt="Car Image">
+                    @endforeach
+                </div>
 
                 <div class="col-md-6 col-lg-8">
                     <h4 class="mb-3">Car Details</h4>
@@ -102,7 +125,7 @@
 
                             <div class="col-sm-6">
                                 <label for="Mileage" class="form-label">Mileage</label>
-                                <input type="text" class="form-control" name="Mileage" id="Mileage"
+                                <input type="number" class="form-control" name="Mileage" id="Mileage"
                                     value="{{ $car->mileage }}" required>
                                 <div class="invalid-feedback">
                                     Please enter a valid Mileage.
@@ -151,33 +174,16 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
-                                <div id="car{{ $car->id }}" class="carousel slide carousel-fade">
-                                    <div class="carousel-inner">
-                                        @foreach ($car->images as $image)
-                                            <div class="carousel-item active">
-                                                <img src="{{ asset('storage/images/cars/' . $image->image) }}"
-                                                    class="d-block w-100" alt="Car Image">
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#car{{ $car->id }}" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#car{{ $car->id }}" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+                            <div class="col-sm-6">
+                                <label for="Power" class="form-label">Power</label>
+                                <input type="number" class="form-control" name="Power" id="Power"
+                                    value="{{ $car->power }}" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Power.
                                 </div>
-                                <span>Car Photos</span>
-
-                                <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-sm-6">
                                 <label for="state" class="form-label">State</label>
                                 <select class="form-select" id="state" name="State" required>
                                     <option class="bg-secondary" selected value={{ $car->states->id }}>
@@ -190,16 +196,25 @@
                                     Please provide a valid state.
                                 </div>
                             </div>
-
-                            <div class="col-sm-5">
+                            <div class="col-sm-12">
+                                <span>Car Photos</span>
+                                <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
+                            </div>
+                            <div class="col-sm-7">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" name="Description" id="description">{{ $car->description }}</textarea>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Description.
+                                </div>
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-5">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" class="form-control" name="Price" id="price"
+                                <input type="number" class="form-control" name="Price" id="price"
                                     value="{{ $car->price }}">
+                                <div class="invalid-feedback">
+                                    Please enter a valid Price.
+                                </div>
                             </div>
                         </div>
 
