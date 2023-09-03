@@ -115,10 +115,6 @@ main {
 .lh-tight {
     line-height: 1.25;
 }
-
-.height-75{
-    height: 750px !important;
-}
 @media (min-width: 768px) {
     .w-md-35{
         width: 35% !important;
@@ -135,4 +131,21 @@ main {
 
 .blue{
     color: #0d6efd !important;
+}
+
+#showdiv {
+    height: auto;
+    max-height: 50px; /* Set the maximum height for the white background */
+    overflow: hidden;
+}
+
+#show{
+    cursor: pointer;
+}
+
+.form-fields {
+    visibility: hidden; /* Initially hide the form fields */
+}
+.form-fields.visible {
+    visibility: visible; /* Show the form fields when the container is visible */
 }

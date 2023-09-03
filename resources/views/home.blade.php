@@ -11,8 +11,10 @@
 
     <div class="container w-100">
         <div class="row gap-1 d-flex justify-content-center">
-            <div class="col-md-2 bg-white border border-grey height-100">
-                <form method="get">
+            <div class="col-md-2 bg-white border border-grey mb-2" id="showdiv">
+                <div id="show" class="text-center pe-auto">Show</div>
+                <h4 class="text-center">Filter Form</h4>
+                <form method="get" class="form-fields">
                     <div class="sort mt-3">
                         <h6 class="mb-0"><b>Manufacturer</b></h6>
                         <div class="d-flex gap-1">
@@ -309,6 +311,21 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        const showButton = document.getElementById('show');
+        const showDiv = document.getElementById('showdiv');
+        const formFields = document.querySelector('.form-fields');
+
+        showButton.addEventListener('click', function() {
+            if (showDiv.style.maxHeight === '50px' || showDiv.style.maxHeight === '') {
+                showDiv.style.maxHeight = '100%'; // Expand the white background
+                formFields.classList.add('visible'); // Show the form fields
+            } else {
+                showDiv.style.maxHeight = '50px'; // Collapse the white background
+                formFields.classList.remove('visible'); // Hide the form fields
+            }
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(".carousel .carousel-item").nextAll().removeClass("active");
