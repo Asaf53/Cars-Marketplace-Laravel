@@ -45,7 +45,7 @@
                                 <hr>
                                 <h5 class="card-title"><b>$ {{ number_format($car->price, 0) }}</b></h5>
                                 <h6><b>{{ $car->users->name }}</b></h6>
-                                <h6><b>Phone: <a href="tel:{{ $car->users->phone }}">{{ $car->users->phone }}</a></b></h6>
+                                <h6><b>Phone: <a href="tel:{{ $car->phone_number }}">{{ $car->phone_number }}</a></b></h6>
                                 <div class="d-grid">
                                     <a href="mailto:{{ $car->users->email }}" class="btn btn-danger text-center"><svg
                                             xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"

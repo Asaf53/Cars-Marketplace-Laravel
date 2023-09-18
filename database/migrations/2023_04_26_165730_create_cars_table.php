@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('power');
             $table->string('description');
             $table->integer('price');
+            $table->string('phone_number');
             $table->timestamps();
         });
     }

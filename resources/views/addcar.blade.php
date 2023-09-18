@@ -83,7 +83,7 @@
                             <div class="col-sm-6">
                                 <label for="Year" class="form-label">Year</label>
                                 <select class="form-select" id="Year" name="Year" required>
-                                    <option value="">Choose...</option>
+                                    <option value="">Choose Year</option>
                                     @foreach ($year as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -95,7 +95,7 @@
 
                             <div class="col-sm-6">
                                 <label for="Mileage" class="form-label">Mileage</label>
-                                <input type="number" class="form-control" name="Mileage" id="Mileage" required>
+                                <input type="number" class="form-control" name="Mileage" id="Mileage" required placeholder="Write Mileage">
                                 @error('Mileage')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -104,7 +104,7 @@
                             <div class="col-sm-6">
                                 <label for="GearBox" class="form-label">Gear Box</label>
                                 <select class="form-select" id="GearBox" name="GearBox" required>
-                                    <option value="">Choose...</option>
+                                    <option value="">Choose Gear Box</option>
                                     @foreach ($gearbox as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -117,7 +117,7 @@
                             <div class="col-sm-6">
                                 <label for="Fuel" class="form-label">Fuel</label>
                                 <select class="form-select" id="Fuel" name="Fuel" required>
-                                    <option value="">Choose...</option>
+                                    <option value="">Choose Fuel</option>
                                     @foreach ($fuel as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -130,7 +130,7 @@
                             <div class="col-sm-6">
                                 <label for="Registration" class="form-label">Registration</label>
                                 <select class="form-select" id="Registration" name="Registration" required>
-                                    <option value="">Choose...</option>
+                                    <option value="">Choose Registration</option>
                                     @foreach ($registration as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -141,17 +141,17 @@
                             </div>
 
                             <div class="col-6">
-                                <span>Car Photos</span>
+                                <label for="imageUpload" class="form-label">Car Photos</label>
                                 <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
                                 @error('images')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <label for="state" class="form-label">State</label>
                                 <select class="form-select" id="state" name="State" required>
-                                    <option value="">Choose...</option>
+                                    <option value="">Choose State</option>
                                     @foreach ($state as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -161,9 +161,9 @@
                                 @enderror
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" name="Price" id="price">
+                                <input type="number" class="form-control" name="Price" id="price" placeholder="Write Price">
                                 {{-- <div class="form-check">
                                     <input id="euro" name="paymentMethod" type="radio" class="form-check-input"
                                         required>
@@ -181,7 +181,7 @@
 
                             <div class="col-sm-6">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="Description" id="description"></textarea>
+                                <textarea class="form-control" name="Description" id="description" placeholder="Write Description"></textarea>
                                 @error('Description')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -189,8 +189,16 @@
 
                             <div class="col-sm-6">
                                 <label for="Power" class="form-label">Power</label>
-                                <input type="number" class="form-control" name="Power" id="Power">
+                                <input type="number" class="form-control" name="Power" id="Power" placeholder="Write Power">
                                 @error('Power')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="phoneNumber" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Write Phone Number">
+                                @error('phoneNumber')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>

@@ -54,7 +54,8 @@ class AddCarController extends Controller
             'Description' => ['required', new NoSpecialCharacters()],
             'Price' => ['required', new NoSpecialCharacters()],
             'Power' => ['required', new NoSpecialCharacters()],
-            'images' => ['required', 'array', new MultipleImagesValidation()]
+            'images' => ['required', 'array', new MultipleImagesValidation()],
+            'phoneNumber' => ['required', new NoSpecialCharacters()]
         ]);
 
         $user = Auth::user()->id;
@@ -72,6 +73,7 @@ class AddCarController extends Controller
         $description = $request->input('Description');
         $price = $request->input('Price');
         $power = $request->input('Power');
+        $phone = $request->input('phoneNumber');
 
         $cars = new cars();
         $cars->user_id = $user;
@@ -89,6 +91,7 @@ class AddCarController extends Controller
         $cars->description = $description;
         $cars->price = $price;
         $cars->power = $power;
+        $cars->phone_number = $phone;
         $cars->save();
 
         foreach ($request->file('images', []) as $imageFile) {
