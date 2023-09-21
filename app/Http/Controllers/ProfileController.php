@@ -90,6 +90,7 @@ class ProfileController extends Controller
         $description = $request->input('Description');
         $price = $request->input('Price');
         $power = $request->input('Power');
+        $phone = $request->input('Phone');
 
         $car->user_id = $user;
         $car->manufacturer_id = $manufacturer;
@@ -106,6 +107,7 @@ class ProfileController extends Controller
         $car->description = $description;
         $car->price = $price;
         $car->power = $power;
+        $car->phone_number = $phone;
 
         foreach ($request->file('images', []) as $imageFile) {
             // Ensure that the file is an image

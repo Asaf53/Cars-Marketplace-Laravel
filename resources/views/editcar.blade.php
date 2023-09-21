@@ -175,12 +175,8 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <label for="Power" class="form-label">Power</label>
-                                <input type="number" class="form-control" name="Power" id="Power"
-                                    value="{{ $car->power }}" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid Power.
-                                </div>
+                                <label for="imageUpload" class="form-label">Car Photos</label>
+                                <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
                             </div>
 
                             <div class="col-sm-6">
@@ -196,11 +192,17 @@
                                     Please provide a valid state.
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <span>Car Photos</span>
-                                <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
+
+                            <div class="col-sm-6">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" name="Price" id="price"
+                                    value="{{ $car->price }}">
+                                <div class="invalid-feedback">
+                                    Please enter a valid Price.
+                                </div>
                             </div>
-                            <div class="col-sm-7">
+
+                            <div class="col-sm-6">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" name="Description" id="description">{{ $car->description }}</textarea>
                                 <div class="invalid-feedback">
@@ -208,12 +210,21 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-5">
-                                <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" name="Price" id="price"
-                                    value="{{ $car->price }}">
+                            <div class="col-sm-6">
+                                <label for="Power" class="form-label">Power</label>
+                                <input type="number" class="form-control" name="Power" id="Power"
+                                    value="{{ $car->power }}" required>
                                 <div class="invalid-feedback">
-                                    Please enter a valid Price.
+                                    Please enter a valid Power.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="Phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" name="Phone" id="Phone"
+                                    value="{{ $car->phone_number }}" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Phone.
                                 </div>
                             </div>
                         </div>
