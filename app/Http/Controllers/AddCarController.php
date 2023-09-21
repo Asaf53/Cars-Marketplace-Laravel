@@ -106,7 +106,7 @@ class AddCarController extends Controller
                 $image = Image::make($imageFile); // Open the image using Intervention Image
 
                 // Resize the image
-                $image->resize(1000, 600);
+                $image->resize(1024, 768);
 
                 // Save the resized image using Laravel's file handling
                 $imagePath = public_path('storage/images/cars/' . $imageName);

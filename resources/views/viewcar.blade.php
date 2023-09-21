@@ -9,8 +9,8 @@
                         <div id="car{{ $car->id }}" class="carousel slide carousel-fade">
                             <div class="carousel-inner">
                                 @foreach ($car->images as $image)
-                                    <div class="carousel-item active">
-                                        <img src="{{ asset('storage/images/cars/' . $image->image) }}" class="d-block w-100"
+                                    <div class="carousel-item active ratio ratio-4x3">
+                                        <img src="{{ asset('storage/images/cars/' . $image->image) }}" class="d-block w-100 "
                                             alt="Car Image">
                                     </div>
                                 @endforeach
