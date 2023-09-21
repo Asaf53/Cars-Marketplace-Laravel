@@ -74,6 +74,7 @@ class AddCarController extends Controller
         $price = $request->input('Price');
         $power = $request->input('Power');
         $phone = $request->input('phoneNumber');
+        $engine = $request->input('Engine');
 
         $cars = new cars();
         $cars->user_id = $user;
@@ -92,6 +93,7 @@ class AddCarController extends Controller
         $cars->price = $price;
         $cars->power = $power;
         $cars->phone_number = $phone;
+        $cars->engine = $engine;
         $cars->save();
 
         foreach ($request->file('images', []) as $imageFile) {

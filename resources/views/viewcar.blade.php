@@ -202,18 +202,22 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-6"><b>Cubic Capacity</b></div>
+                                    <div class="col-6">{{ number_format($car->engine, 0) }} ccm</div>
+                                </div>
+                                <div class="row bg-gray">
                                     <div class="col-6"><b>Fuel</b></div>
                                     <div class="col-6">{{ $car->fuels->fuel }}</div>
                                 </div>
-                                <div class="row bg-gray">
+                                <div class="row">
                                     <div class="col-6"><b>Gearbox</b></div>
                                     <div class="col-6">{{ $car->gearboxs->gearbox }}</div>
                                 </div>
-                                <div class="row">
+                                <div class="row bg-gray">
                                     <div class="col-6"><b>Registration</b></div>
                                     <div class="col-6">{{ $car->years->year }}</div>
                                 </div>
-                                <div class="row bg-gray">
+                                <div class="row">
                                     <div class="col-6"><b>Colour</b></div>
                                     <div class="col-6">{{ $car->colors->color }}</div>
                                 </div>

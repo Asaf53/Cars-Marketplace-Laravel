@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('price');
             $table->string('phone_number');
+            $table->integer('engine');
             $table->timestamps();
         });
     }

@@ -140,7 +140,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-sm-12">
                                 <label for="imageUpload" class="form-label">Car Photos</label>
                                 <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
                                 @error('images')
@@ -148,7 +148,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-6">
                                 <label for="state" class="form-label">State</label>
                                 <select class="form-select" id="state" name="State" required>
                                     <option value="">Choose State</option>
@@ -199,6 +199,14 @@
                                 <label for="phoneNumber" class="form-label">Phone Number</label>
                                 <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Write Phone Number">
                                 @error('phoneNumber')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="Engine" class="form-label">Cubic Capacity</label>
+                                <input type="tel" class="form-control" name="Engine" id="Engine" placeholder="Write Engine">
+                                @error('Engine')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>

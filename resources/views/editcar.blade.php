@@ -174,7 +174,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <label for="imageUpload" class="form-label">Car Photos</label>
                                 <input type="file" class="form-control" name="images[]" id="imageUpload" multiple>
                             </div>
@@ -225,6 +225,15 @@
                                     value="{{ $car->phone_number }}" required>
                                 <div class="invalid-feedback">
                                     Please enter a valid Phone.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="Engine" class="form-label">Cubic Capacity</label>
+                                <input type="tel" class="form-control" name="Engine" id="Engine"
+                                    value="{{ $car->engine }}" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Engine.
                                 </div>
                             </div>
                         </div>
