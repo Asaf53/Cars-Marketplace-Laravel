@@ -10,10 +10,8 @@
                             <div class="carousel-inner">
                                 @foreach ($car->images as $image)
                                     <div class="carousel-item active">
-                                        <a href="{{ route('cars.show', $car->id) }}">
-                                            <img src="{{ asset('storage/images/cars/' . $image->image) }}"
-                                                class="d-block w-100" alt="Car Image">
-                                        </a>
+                                        <img src="{{ asset('storage/images/cars/' . $image->image) }}" class="d-block w-100"
+                                            alt="Car Image">
                                     </div>
                                 @endforeach
                             </div>
@@ -34,14 +32,15 @@
                             <div class="card-body">
                                 <h5 class="card-title"><b>{{ $car->manufacturers->brand . ' ' . $car->models->name }}</b>
                                 </h5>
-                                <h6 class="blue"><a href="https://maps.google.com/?q={{ $car->states->state }}"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
-                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
-                                        stroke="#0d6efd" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                                        <path
-                                            d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                                    </svg>{{ $car->states->state }}</a></h6>
+                                <h6 class="blue"><a href="https://maps.google.com/?q={{ $car->states->state }}"><svg
+                                            xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
+                                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="#0d6efd" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                                            <path
+                                                d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                                        </svg>{{ $car->states->state }}</a></h6>
                                 <hr>
                                 <h5 class="card-title"><b>$ {{ number_format($car->price, 0) }}</b></h5>
                                 <h6><b>{{ $car->users->name }}</b></h6>
